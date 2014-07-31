@@ -5,6 +5,4 @@ class Customer < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
-  def success_charges
-  end
 end
