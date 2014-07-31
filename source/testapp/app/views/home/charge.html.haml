@@ -1,0 +1,11 @@
+%h1 Failed Charges
+.failed
+  = render partial: 'home/transaction', locals:{ trans: @failed_trans}
+
+%h1 Disputed Charges
+.disputed
+  = render partial: 'home/transaction', locals:{ trans: @dispute_trans}
+
+%h1 Successful Charges
+.success
+  = render partial: 'home/transaction', locals:{ trans: @success_trans}

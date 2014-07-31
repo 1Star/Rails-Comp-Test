@@ -1,0 +1,14 @@
+%table
+  %thead
+    %th Customer Name
+    %th Charge Amount
+    %th Date
+  %tbody
+    - trans.each do |tran|
+      %tr.list{'data-charge-id' => "#{tran.id}"}
+        %td
+          = tran.customer.name
+        %td
+          = tran.amount
+        %td
+          = tran.created_at.to_s
