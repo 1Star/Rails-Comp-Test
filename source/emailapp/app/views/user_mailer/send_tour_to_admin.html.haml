@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %h1 A New Tour Scheduled
+    %p
+      %h2 User Information
+      %br
+      Name : 
+      = @user.name
+
+      %br
+      Phone : 
+      = @user.phone
+
+    %p
+      %h2 Tour Information
+      %br
+      Tour Date : 
+      = @user.tours.first.tour_date.to_s
+
+      %br
+      Amenity : 
+      = @user.tours.first.amenity
+
+      %br
+      Note : 
+      = @user.tours.first.note
+
+    %p
+      %h2 Requested IP Address
+      %br
+      = @remote_ip

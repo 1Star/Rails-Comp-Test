@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %h1 Welcome to Email APP
+    %p
+      You has been invited to Email APP SYSTEM.
+      To sign up please click
+      = link_to 'EMAIL APP SYSTEM', sign_up_users_url(email: @user.email, invitation_token: @user.invitation_token)

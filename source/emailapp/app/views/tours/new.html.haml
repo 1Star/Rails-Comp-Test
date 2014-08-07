@@ -1,0 +1,6 @@
+%h1 Tour Information
+= simple_form_for [@user, @tour] do |f|
+  = f.input :tour_date, required: true
+  = f.input :amenity, collection: select_amenities, default: 'pool'
+  = f.input :note
+  = f.submit 'Finish Sign Up'

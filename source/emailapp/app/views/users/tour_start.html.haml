@@ -1,0 +1,31 @@
+%h1 Start Tour
+%p
+  %h2 User Information
+  %br
+  Name : 
+  = @user.name
+
+  %br
+  Phone : 
+  = @user.phone
+
+%p
+  %h2 Tour Information
+  %br
+  Tour Date : 
+  = @user.tours.first.tour_date.to_s
+
+  %br
+  Amenity : 
+  = @user.tours.first.amenity
+
+  %br
+  Note : 
+  = @user.tours.first.note
+
+%p
+  %h2 Rate
+  %form
+    - (1..5).each do |n|
+      = radio_button_tag('scale', n, checked = (n==5), {id: "scale_#{n}"})
+      %label{for: "scale_#{n}"}= n

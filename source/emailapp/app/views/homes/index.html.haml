@@ -1,0 +1,4 @@
+%h2 Activation
+= simple_form_for :user, url: homes_invite_path do |f|
+  = f.input :email, required: true, placeholder: 'Your Email Address', input_html: {type: 'email'}
+  = f.submit 'Activate User'
