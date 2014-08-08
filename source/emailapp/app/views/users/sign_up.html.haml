@@ -1,5 +1,6 @@
 %h1 User Information
 = simple_form_for @user, html:{method: 'PUT'} do |f|
+  = render 'shared/errors', object: f.object
   = f.input :first_name, required: true
   = f.input :last_name, required: true
   = f.input :phone, required: true

@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
 
   def index
+    @user = User.new
   end
 
   def invite
@@ -9,16 +10,16 @@ class HomesController < ApplicationController
     params[:user][:invitation_token] = get_token
     params[:user][:invitation_at] = Time.now
 
-    user = User.find_by_email email
-    user = User.new(invite_params) if user.nil?
+    @user = User.find_by_email email
+    @user.destroy unless @user.nil?
+    @user = User.new(invite_params)
     
-    if user.save
-      UserMailer.invite_mail(user).deliver
-      flash[:notice] = 'Email successfully sent!'
-      render action: :index
+    if @user.save
+      UserMailer.invite_mail(@user).deliver
+      redirect_to root_path, notice:'Email successfully sent!'
     else
       flash[:alert] = 'Some errors occurred.'
-      render action: :index
+      render 'index'
     end
 
   end

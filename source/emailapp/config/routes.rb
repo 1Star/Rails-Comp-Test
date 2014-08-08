@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post '/homes/invite', to: 'homes#invite'
+  match '/homes/invite', to: 'homes#invite', via:[:get, :post]
   get '/homes/complete', to: 'homes#complete'
 
   resources :users do
